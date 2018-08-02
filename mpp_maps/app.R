@@ -73,6 +73,7 @@ ui <- fluidPage(
       colourInput("low", "Choose a color for low value","#deebf7"),
       colourInput("high", "Choose a color for high value", "#08519c"),
       
+      radioButtons("filetype", "File type:", choices = c("png", "pdf")),
       downloadButton("plot", label = "Download the plot")
     ),
    
@@ -138,9 +139,11 @@ server <- function(input, output,session) {
     
   
   output$plot <- downloadHandler(
-    filename = 'plot.png',
+    filename = function(){
+      paste("plot", input$filetype, sep = ".")
+    },
     content = function(file){
-      ggsave(file, plotInput(),device = 'png',width = 16, height = 10.4, bg = "transparent")
+      ggsave(file, plotInput(), device = input$filetype, width = 16, height = 10.4, bg = "transparent")
     }
   )
   
