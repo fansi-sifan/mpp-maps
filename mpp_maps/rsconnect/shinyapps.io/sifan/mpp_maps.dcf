@@ -5,9 +5,9 @@ account: sifan
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 293382
-bundleId: 1515341
+bundleId: 1515364
 url: https://sifan.shinyapps.io/mpp_maps/
-when: 1533241572.41761
+when: 1533242440.16537
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: plot.pdf|summary.csv|Thumbs.db

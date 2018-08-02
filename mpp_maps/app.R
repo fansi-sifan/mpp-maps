@@ -11,7 +11,7 @@
 # 4. (/) Save the plot to local
 # 5. ( ) MSA bubble maps
 # 6. ( ) County maps
-# 7. ( ) Select donwload option (pdf/png)
+# 7. (/) Select donwload option (pdf/png)
 
 # Author: Sifan Liu
 # Date: Thu Jul 26 09:13:31 2018
