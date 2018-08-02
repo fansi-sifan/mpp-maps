@@ -114,24 +114,26 @@ server <- function(input, output,session) {
     input_data <- info()
     
     map_wrapper <- ggplot() + 
-      geom_map(data = states, map = fifty_states, aes(x = long, y = lat, map_id = region),fill = "white", color = "grey") +
-      geom_map(data = input_data, map = fifty_states, aes_string(fill = input$var, map_id = 'State')) +
-      labs(x=NULL, y=NULL) + 
-      coord_map("albers", lat0 = 39, lat1 = 45) + 
-      theme(panel.border = element_blank()) + 
-      theme(panel.background = element_blank()) + 
-      theme(axis.ticks = element_blank()) + 
-      theme(axis.text = element_blank())
+      geom_map(data = states, map = fifty_states, size = 1,
+               aes(x = long, y = lat, map_id = region), 
+               fill = "light grey", color = "white") +
+      geom_map(data = input_data, map = fifty_states, color = "white",
+               aes_string(fill = input$var, map_id = 'State')) +
+      coord_map("albers", lat0 = 39, lat1 = 45) +
+      theme_map() %+% 
+      theme(legend.key = element_rect(colour = NA, fill = NA))
     
     if (is.discrete(input_data[[input$var]])){
       map_wrapper + 
-        scale_fill_brewer()
-    } else {
+        scale_fill_manual(values = colorRampPalette(brewer.pal(9, "Set1"))(length(unique(input_data[[input$var]]))),
+                          labels = comma, 
+                          name = gsub("\\."," ",input$var))
+    } 
+    else {
       map_wrapper + 
-        scale_fill_gradient(low = input$low, high = input$high)
+        scale_fill_continuous(labels = comma, name = gsub("\\."," ",input$var),
+                              low = input$low, high = input$high)
     }
-    
-    
   } 
     
   
