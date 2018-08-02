@@ -9,7 +9,9 @@
 # 2. (/) Choose the variable to map for state color: https://github.com/daattali/colourpicker
 # 3. (/) Choose from the color template: https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
 # 4. (/) Save the plot to local
-
+# 5. ( ) MSA bubble maps
+# 6. ( ) County maps
+# 7. ( ) Select donwload option (pdf/png)
 
 # Author: Sifan Liu
 # Date: Thu Jul 26 09:13:31 2018
